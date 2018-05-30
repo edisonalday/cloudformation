@@ -33,7 +33,7 @@
       ],
       "ConstraintDescription": "must be a valid EC2 instance type."
     },
-    "ukohio": {
+    "SSHKey": {
       "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance.",
       "Type": "AWS::EC2::KeyPair::KeyName",
       "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
@@ -43,7 +43,7 @@
       "Type": "String",
       "MinLength": "9",
       "MaxLength": "18",
-      "Default": "208.74.50.0/24",
+      "Default": "182.19.185.226/32",
       "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
       "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
     }
@@ -120,21 +120,8 @@
     },
     "AWSRegionArch2AMI": {
       "us-east-1": {
-        "PV64": "ami-1ccae774",
-        "HVM64": "ami-1ecae776",
-        "HVMG2": "ami-8c6b40e4"
-      },
-      "us-west-2": {
-        "PV64": "ami-ff527ecf",
-        "HVM64": "ami-e7527ed7",
-        "HVMG2": "ami-abbe919b"
-      },
-      "us-west-1": {
-        "PV64": "ami-d514f291",
-        "HVM64": "ami-d114f295",
-        "HVMG2": "ami-f31ffeb7"
+        "PV64": "ami-a4dc46db"
       }
-
     }
   },
   "Resources": {
@@ -298,7 +285,7 @@
           ]
         },
         "KeyName": {
-          "Ref": "ukohio"
+          "Ref": "SSHKey"
         },
         "NetworkInterfaces": [
           {
